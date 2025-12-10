@@ -1,5 +1,6 @@
 
 import { IconNetwork } from "../../components/social";
+import { Header } from "../../components/header";
 import {FaFacebook, FaInstagram, FaYoutube} from "react-icons/fa";
 
 
@@ -7,6 +8,7 @@ const Home = () => {
     //const [links, setLinks] = useState<PropsDataUSer[]>([]);
     return (
         <div className="w-full flex flex-col items-center justify-center py-4">
+            <Header/>
            <h1 className="md:text-4xl text-3xl text-white font-bold mt-20">Sujeito Programador</h1>
            <span className="mb-5 mt-3 text-gray-50">Veja meus links 👇</span>
 

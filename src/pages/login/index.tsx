@@ -26,6 +26,9 @@ function Login () {
             navigate("/admin");
         }).catch((error)=>{
             console.log("ERRO de Autenticação!")
+            alert("Dados incorretos, preencha-os novamente!");
+            setEmail("");
+            setSenha("");
             console.log(error)
         })
         

@@ -23,7 +23,7 @@ export function Header ( ){
                         Redes sociais
                     </Link>
                 </div>
-                <button onClick={handleLogOut}>
+                <button className="cursor-pointer" onClick={handleLogOut}>
                     <CiLogout color= "#ad0000" size={28}></CiLogout>
                 </button>
 

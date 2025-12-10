@@ -2,21 +2,13 @@ import { useEffect, useState, type FormEvent } from "react";
 import { Header } from "../../components/header";
 import { Input } from "../../components/input";
 import { LuLink2 } from "react-icons/lu";
-import { getDoc, setDoc, doc, collection } from "firebase/firestore";
+import { getDoc, setDoc, doc} from "firebase/firestore";
 import { db } from "../../services/firebaseconfig";
-import { onSnapshot } from "firebase/firestore";
-
-interface PropsSociais{
-    facebook: string,
-    instagram: string,
-    youtube: string
-}
 
 function Network(){
     const [urlFacebook, setUrlFacebook] = useState("");
     const [urlInstagram, setUrlInstagram] = useState("");
     const [urlYoutube, setUrlYoutube] = useState("");
-    const [links, setLinks] = useState<PropsSociais[]>([]);
 
     function handleRegister(e: FormEvent){
         e.preventDefault();
@@ -33,20 +25,24 @@ function Network(){
     };
 
     useEffect((()=>{
-        const docsRef = doc(db, "sociais", "links");
-        getDoc(docsRef).then((snapshot)=>{
-            if(snapshot !== undefined){
-                setUrlFacebook(snapshot.data()?.facebook)
-                setUrlInstagram(snapshot.data()?.instagram)   
-                setUrlYoutube(snapshot.data()?.youtube)
-            }
-            console.log(snapshot.data());
-        }
 
-        ).catch((error)=>{
-            console.log("Erro ao cadastrar as redes sociais: "+error);
-        })
-    
+        function loadLinks(){
+            const docsRef = doc(db, "sociais", "links");
+            getDoc(docsRef).then((snapshot)=>{
+                if(snapshot.data() !== undefined){
+                    setUrlFacebook(snapshot.data()?.facebook)
+                    setUrlInstagram(snapshot.data()?.instagram)   
+                    setUrlYoutube(snapshot.data()?.youtube)
+                }
+                console.log(snapshot.data());
+            }
+
+            ).catch((error)=>{
+                console.log("Erro ao cadastrar as redes sociais: "+error);
+            })
+        }
+        
+        loadLinks();
 
     }),[]);
 

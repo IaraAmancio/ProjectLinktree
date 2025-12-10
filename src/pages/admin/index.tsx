@@ -10,7 +10,6 @@ import { addDoc,
          orderBy,
          doc,
          deleteDoc, 
-         getDocs,
          } from "firebase/firestore"
 import { db } from "../../services/firebaseconfig"
 

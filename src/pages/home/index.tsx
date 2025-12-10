@@ -1,7 +1,7 @@
 
 import { IconNetwork } from "../../components/social";
 import {FaFacebook, FaInstagram, FaYoutube} from "react-icons/fa";
-import { collection, getDocs, getDoc, onSnapshot, orderBy } from "firebase/firestore";
+import { collection, getDocs, getDoc, orderBy } from "firebase/firestore";
 import { query } from "firebase/firestore";
 import { db } from "../../services/firebaseconfig";
 import { useEffect } from "react";
